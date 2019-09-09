@@ -1,4 +1,3 @@
-
 ROPRODEV=$(getprop ro.product.device)
 
 ui_print "Your device is recognized as $ROPRODEV" 

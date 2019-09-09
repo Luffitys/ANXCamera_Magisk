@@ -25,13 +25,11 @@ comp_check
 # Uncomment and change 'MINAPI' and 'MAXAPI' to the minimum and maximum android version for your mod
 # Uncomment DYNLIB if you want libs installed to vendor for oreo+ and system for anything older
 # Uncomment SYSOVER if you want the mod to always be installed to system (even on magisk) - note that this can still be set to true by the user by adding 'sysover' to the zipname
-# Uncomment DIRSEPOL if you want sepolicy patches applied to the boot img directly (not recommended) - THIS REQUIRES THE RAMDISK PATCHER ADDON (this addon requires minimum api of 17)
 # Uncomment DEBUG if you want full debug logs (saved to /sdcard in magisk manager and the zip directory in twrp) - note that this can still be set to true by the user by adding 'debug' to the zipname
 #MINAPI=21
 #MAXAPI=25
 #DYNLIB=true
 #SYSOVER=true
-#DIRSEPOL=true
 #DEBUG=true
 
 # Uncomment if you do *NOT* want Magisk to mount any files for you. Most modules would NOT want to set this flag to true
@@ -70,11 +68,10 @@ print_modname() {
   center_and_print # Replace this line if using custom print stuff
   ui_print " "
   ui_print "************************************"
-  ui_print "          MIUI Camera Port          "
-  ui_print "    For Xiaomi's SD845 Devices      "
-  ui_print "         Created by AEonAX,         "
-  ui_print "         	  Luffitys,       		"
-  ui_print "     CodeElixir and Abhishek987     "
+  ui_print "*          MIUI Camera Port        *"
+  ui_print "*         Created by Luffitys,     *"
+  ui_print "*         	    AEonAX,       	   *"
+  ui_print "*     CodeElixir and Abhishek987   *"
   ui_print "************************************"
   ui_print " "
   unity_main # Don't change this line
