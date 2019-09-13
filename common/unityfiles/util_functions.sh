@@ -460,30 +460,30 @@ prop_process() {
   $MAGISK || chmod 0700 $PROP
 }
 
-center_and_print() {
-  ui_print " "
-  local NEW CHARS SPACES
-  ui_print "    *******************************************"
-  for i in name version author; do
-    NEW=$(grep_prop $i $TMPDIR/module.prop)
-    [ "$i" == "author" ] && NEW="by ${NEW}"
-    CHARS=$((${#NEW}-$(echo "$NEW" | tr -cd "©®™" | wc -m)))
-    SPACES=""
-    if [ $CHARS -le 41 ]; then
-      for j in $(seq $(((41-$CHARS) / 2))); do
-        SPACES="${SPACES} "
-      done
-    fi
-    if [ $(((41-$CHARS) % 2)) -eq 1 ]; then
-      ui_print "    *$SPACES$NEW${SPACES} *"
-    else
-      ui_print "    *$SPACES$NEW$SPACES*"
-    fi
-    [ "$i" == "name" ] && ui_print "    *******************************************"
-  done
-  ui_print "    *******************************************"
-  ui_print " "
-}
+#center_and_print() {
+  #ui_print " "
+  #local NEW CHARS SPACES
+  #ui_print "    *******************************************"
+  #for i in name version author; do
+    #NEW=$(grep_prop $i $TMPDIR/module.prop)
+    #[ "$i" == "author" ] && NEW="by ${NEW}"
+    #CHARS=$((${#NEW}-$(echo "$NEW" | tr -cd "©®™" | wc -m)))
+    #SPACES=""
+    #if [ $CHARS -le 41 ]; then
+      #for j in $(seq $(((41-$CHARS) / 2))); do
+        #SPACES="${SPACES} "
+      #done
+    #fi
+    #if [ $(((41-$CHARS) % 2)) -eq 1 ]; then
+      #ui_print "    *$SPACES$NEW${SPACES} *"
+    #else
+      #ui_print "    *$SPACES$NEW$SPACES*"
+    #fi
+    #[ "$i" == "name" ] && ui_print "    *******************************************"
+  #done
+  #ui_print "    *******************************************"
+  #ui_print " "
+#}
 
 #######
 # main

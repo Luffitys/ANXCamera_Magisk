@@ -12,7 +12,7 @@
 if [ -z $UF ]; then
   UF=$TMPDIR/common/unityfiles
   unzip -oq "$ZIPFILE" 'common/unityfiles/util_functions.sh' -d $TMPDIR >&2
-  [ -f "$UF/util_functions.sh" ] || { ui_print "! Unable to extract zip file !"; exit 1; }
+  [ -f "$UF/util_functions.sh" ] || { ui_print "! Unable to extract zip file, probably corrupted. Please redownload !"; exit 1; }
   . $UF/util_functions.sh
 fi
 
@@ -66,14 +66,6 @@ REPLACE="
 
 print_modname() {
   center_and_print # Replace this line if using custom print stuff
-  ui_print " "
-  ui_print "************************************"
-  ui_print "*          MIUI Camera Port        *"
-  ui_print "*         Created by Luffitys,     *"
-  ui_print "*         	    AEonAX,       	   *"
-  ui_print "*     CodeElixir and Abhishek987   *"
-  ui_print "************************************"
-  ui_print " "
   unity_main # Don't change this line
 }
 
