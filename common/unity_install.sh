@@ -15,27 +15,9 @@ ui_print ""
 ui_print ""
 
 
-if device_check "cepheus"; then 
-  rm -rf $TMPDIR/system/lib/
-  rm -rf $TMPDIR/system/lib64/
-elif device_check "perseus"; then 
-  rm -rf $TMPDIR/system/lib/
-  rm -rf $TMPDIR/system/lib64/
-elif device_check "violet"; then 
-  rm -rf $TMPDIR/system/lib/
-  rm -rf $TMPDIR/system/lib64/
-elif device_check "whyred"; then 
-  rm -rf $TMPDIR/system/lib/
-  rm -rf $TMPDIR/system/lib64/
-elif device_check "raphael"; then 
-  rm -rf $TMPDIR/system/lib/
-  rm -rf $TMPDIR/system/lib64/
-elif device_check "davinci"; then 
-  rm -rf $TMPDIR/system/lib/
-  rm -rf $TMPDIR/system/lib64/
-elif [ -f /sdcard/.anxnolib ]; then
-  rm -rf $TMPDIR/system/lib/
-  rm -rf $TMPDIR/system/lib64/
+if device_check "davinci" || device_check "raphael" || device_check "davinciin" || device_check "raphaelin" || device_check "cepheus" || device_check "perseus" || device_check "violet" || device_check "whyred"; then
+	rm -rf $MODPATH/system/lib/libcameraservice.so
+	rm -rf $MODPATH/system/lib64/libcameraservice.so
 fi
 
 

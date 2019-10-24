@@ -10,3 +10,7 @@
   #killall -9 android.hardware.camera.provider@2.4-service
   #ui_print "anx demands camserver sacrifice and rebirth"
 #fi
+
+sleep 5;
+appops set com.android.camera android:legacy_storage allow
+rm -rf $MODPATH/common/service.sh
