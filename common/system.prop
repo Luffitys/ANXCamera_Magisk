@@ -2,8 +2,6 @@
 # Example: Change dpi
 # ro.sf.lcd_density=320
 
-vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,com.miui.cit,com.qualcomm.qti.qmmi
-vendor.camera.aux.packagelist.ext=,com.xiaomi.biometric,com.xiaomi.biometric.haldemo
 #system property for camera
 persist.vendor.camera.multicam.hwsync=TRUE
 persist.vendor.camera.multicam.fpsmatch=TRUE

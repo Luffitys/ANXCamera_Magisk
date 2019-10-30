@@ -11,6 +11,6 @@
   #ui_print "anx demands camserver sacrifice and rebirth"
 #fi
 
-sleep 5;
+sleep 6
 appops set com.android.camera android:legacy_storage allow
-rm -rf $MODPATH/common/service.sh
+rm $MODPATH/common/service.sh
