@@ -3,6 +3,7 @@ MODULEVERSION=$(grep_prop versionCode $TMPDIR/module.prop)
 ANDROIDVERSION=$(getprop ro.system.build.version.release)
 
 ui_print " "
+ui_print " "
 ui_print "     ─────────────────────────────────────"
 ui_print "                 [ANXCamera v$MODULEVERSION]"
 ui_print "         Your device is recognized as `toupper $DEVICENAME`"
@@ -35,6 +36,7 @@ ui_print "               CodeElixir, Abhishek987"
 ui_print "                     Wolf, Noid"
 ui_print "            and many other great people"
 ui_print "     ─────────────────────────────────────"
+ui_print " "
 ui_print " "
 
 # Device Check
