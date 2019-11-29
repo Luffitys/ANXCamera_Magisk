@@ -1,4 +1,4 @@
-DEVICENAME=$(getprop ro.product.device)
+DEVICENAME=$(getprop ro.product.vendor.device)
 MODULEVERSION=$(grep_prop versionCode $TMPDIR/module.prop)
 ANDROIDVERSION=$(getprop ro.system.build.version.release)
 
