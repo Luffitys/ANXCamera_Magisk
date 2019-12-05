@@ -27,11 +27,15 @@
     <!--whether the device supports page layout-->
     <bool name="support_page_layout">false</bool>
     <!--whether the device supports record param-->
-    <bool name="support_record_param">true</bool>
+    <bool name="support_record_param">false</bool>
     <!--whether the device supports interview record param-->
     <bool name="support_interview_record_param">true</bool>
     <!--whether the device supports stereo record-->
     <bool name="support_stereo_record">true</bool>
+    <!--whether the device supports screenrecorder inner-sound recorder mode-->
+    <integer name="support_inner_record">1</integer>
+    <!--whether the device supports screenrecorder a2dp inner-sound recorder-->
+    <bool name="support_a2dp_inner_record">false</bool>
     <!--whether the device supports screen paper mode-->
     <bool name="support_screen_paper_mode">true</bool>
     <!--whether the device supports button light-->
@@ -51,7 +55,7 @@
     <!--whether the device supports wapi-->
     <bool name="support_wapi">true</bool>
     <!--whether the device is mediatek-->
-    <bool name="is_mediatek">false</bool>
+    <bool name="is_mediatek">true</bool>
     <!--whether the device supports media feedback-->
     <bool name="support_media_feedback">false</bool>
     <!--whether the device supports phone call noise suppression-->
@@ -69,7 +73,7 @@
     <!--whether the device supports eap sim-->
     <bool name="support_eap_sim">true</bool>
     <!--whether the device supports screen optimize-->
-    <bool name="support_screen_optimize">true</bool>
+    <bool name="support_screen_optimize">false</bool>
     <!--whether the device supports agps-->
     <bool name="support_agps">true</bool>
     <!--whether the device supports feedback level-->
@@ -127,7 +131,7 @@
     <!--whether taking lower size effect image in camera-->
     <bool name="is_lower_size_effect">false</bool>
     <!--whether support aohdr in camera-->
-    <bool name="support_camera_aohdr">true</bool>
+    <bool name="support_camera_aohdr">false</bool>
     <!--whether support high frame recording in camera-->
     <bool name="support_camera_hfr">true</bool>
     <!--whether support chroma flash in camera-->
@@ -157,7 +161,7 @@
     <!--whether hold blured background for effects preview in camera-->
     <bool name="is_camera_hold_blur_background">true</bool>
     <!--whether support peaking mf in camera-->
-    <bool name="support_camera_peaking_mf">true</bool>
+    <bool name="support_camera_peaking_mf">false</bool>
     <!--whether support gradienter in camera-->
     <bool name="support_camera_gradienter">true</bool>
     <!--whether scan qrcode with lower frequency in camera-->
@@ -181,11 +185,11 @@
     <!--whether support pre-installed application-->
     <bool name="support_pre_installed_application">true</bool>
     <!--wheater support validate device when syste upadte -->
-    <bool name="support_ota_validate">false</bool>
+    <bool name="support_ota_validate">true</bool>
     <!--wheater support show credentials-->
     <bool name="support_credentials">true</bool>
     <!--the vendor feature, it's value may be qcom,mediatek,leadcore or nvidia-->
-    <string name="vendor">qcom</string>
+    <string name="vendor">mediatek</string>
     <!--release time for the device, should be an unix timestamp-->
     <string name="release_time">1470758400000</string>
     <!--0:not support 1:close gamut 2:close ce-->
@@ -193,7 +197,7 @@
     <!--Flag of reduce preview size in camera(1:reduce, 0:do not reduce; 1st byte:rear camera, 2nd byte:front camera, 3rd byte:rear video, 4th byte:front video )-->
     <integer name="camera_reduce_preview_flag">12</integer>
     <!--max number of burst images one time -->
-    <integer name="burst_shoot_count">100</integer>
+    <integer name="burst_shoot_count">20</integer>
     <!--b0:flash b1:hdr b2:motion b3:night-->
     <integer name="camera_supported_asd">11</integer>
     <!--front asd b0:flash b1:hdr b2:motion b3:night-->
@@ -203,7 +207,7 @@
     <!-- front hht enhance-->
     <bool name="support_front_hht_enhance">true</bool>
     <!--max cpu freq of the device-->
-    <integer name="cpu_max_freq">195</integer>
+    <integer name="cpu_max_freq">205</integer>
     <!--total steps number of camera compensation-->
     <float name="camera_exposure_compensation_steps_num">12.0</float>
     <!--Left margin of count down parent layout for front camera-->
@@ -218,27 +222,25 @@
         <item>uinput-fpc</item>
         <item>uinput-goodix</item>
     </string-array>
+    <!-- finger for alipay. default do not need config. -->
+    <string name="finger_alipay_ifaa_model">Xiaomi-begonia</string>
     <!-- type of soter finger pay, config by owner of soter -->
     <integer name="type_soter_finger_pay">2</integer>
     <!-- whether support double tap to wake up device -->
     <bool name="support_gesture_wakeup">true</bool>
-    <!--These app has permission to access aux camera -->
-    <string-array name="camera_aux_package_list">
-        <item>org.codeaurora.snapcam</item>
-        <item>com.android.camera</item>
-        <item>com.miui.cit</item>
-        <item>com.qualcomm.qti.qmmi</item>
-        <item>com.android.keyguard</item>
-        <item>com.android.systemui</item>
-        <item>com.phonetest.application</item>
-        <item>com.phonetest.application.test</item>
-        <item>com.ss.android.ugc.aweme</item>
-        <item>com.factory.mmigroup</item>
-    </string-array>
     <!--Led light features-->
     <bool name="support_led_light">true</bool>
     <bool name="support_led_color">false</bool>
     <bool name="support_audio_loopback">true</bool>
+    <!--These app has permission to access aux camera -->
+    <string-array name="camera_aux_package_list">
+        <item>com.android.camera</item>
+        <item>org.codeaurora.snapcam</item>
+        <item>com.lctautotest.camera</item>
+        <item>com.android.lightboxtest</item>
+        <item>com.xiaomi.cameratools</item>
+        <item>com.miui.cit</item>
+    </string-array>
     <!--Add for the system data-app which could uninstall by user-->
     <string-array name="system_data_packagename_list">
         <item>com.xiaomi.pass</item>
@@ -283,19 +285,14 @@
     </string-array>
     <!-- whether camera support AI lens entry -->
     <bool name="camera_support_ai_lens">true</bool>
-    <bool name="camera_support_google_lens">true</bool>
     <!--whether show my device-->
     <bool name="support_my_device">true</bool>
-    <!--whether round corner-->
-    <bool name="support_round_corner">true</bool>
-    <!-- whether support LDAC -->
-    <bool name="support_ldac">false</bool>
     <!--battery capacity typ of the device-->
-    <string name="battery_capacity_typ">4000</string>
+    <string name="battery_capacity_typ">4500</string>
     <!--whether show basic info items-->
     <bool name="support_show_basic_items">true</bool>
     <!-- whether CN hardware can flash Global rom -->
-    <bool name="enable_flash_global">true</bool>
+    <bool name="enable_flash_global">false</bool>
     <bool name="support_new_silentmode">true</bool>
     <!--whether taking 18x9 ratio screen in camera-->
     <bool name="is_18x9_ratio_screen">false</bool>
@@ -333,21 +330,41 @@
     <bool name="camera_is_support_portrait_switch">true</bool>
     <!-- Support Sign Verify In Cust Partition-->
     <bool name="support_sign_verify_in_cust">true</bool>
-    <bool name="support_mi_face_beauty">true</bool>
     <bool name="support_super_resolution">true</bool>
     <!--whether the device support hall sensor-->
     <bool name="support_hall_sensor">false</bool>
     <!--whether sensor_has_latency-->
     <bool name="sensor_has_latency">true</bool>
-   <!-- whether support dynamic light spot in portrait module  -->
+    <!-- whether disable fast connect feautre -->
+    <bool name="disable_bluetooth_fast_connect">true</bool>
+    <!-- whether support touch gamemode -->
+    <bool name="support_touchfeature_gamemode">true</bool>
+    <!-- whether support dynamic light spot in portrait module  -->
     <bool name="support_camera_dynamic_light_spot">true</bool>
     <bool name="support_front_beauty_mfnr">true</bool>
+    <!--The value of papar max level-->
+    <float name="paper_mode_max_level">255.0</float>
+    <!--The value of papar min level-->
+    <float name="paper_mode_min_level">58.0</float>
+    <!--whether paper mode and screen effect is compatible-->
+    <bool name="is_compatible_paper_and_screen_effect">true</bool>
+    <!--whether surpport paper mode animation-->
+    <bool name="support_papermode_animation">true</bool>
+
     <!--These region support face unlock-->
     <string-array name="support_face_unlock_region_global">
         <item>ALL</item>
     </string-array>
-    <float name="paper_mode_max_level">255.0</float>
-    <float name="paper_mode_min_level">58.0</float>
-    <bool name="is_compatible_paper_and_screen_effect">true</bool>
-    <bool name="support_papermode_animation">true</bool>
+    <!--These region support face unlock-->
+    <string-array name="support_face_unlock_region_dom">
+        <item>CN</item>
+    </string-array>
+    <!-- device head sar value -->
+    <float name="device_head_sar">1.130</float>
+    <!-- device body sar value -->
+    <float name="device_body_sar">0.634</float>
+    <!-- support nfc -->
+    <bool name="support_nfc">false</bool>
+    <!-- NFC related -->
+    <bool name="support_se_route">false</bool>
 </features>
