@@ -147,15 +147,15 @@ cleanup() {
   if $MAGISK; then
     imageless_magisk || unmount_magisk_img
     ui_print " "
-    ui_print "    *******************************************"
-    ui_print "    *      Powered by Magisk (@topjohnwu)     *"
-    ui_print "    *******************************************"
+    ui_print "     --------------------------------------"
+    ui_print "         Powered by Magisk (@topjohnwu)"
+    ui_print "     --------------------------------------"
   fi
   $BOOTMODE || recovery_cleanup
   ui_print " "
-  ui_print "    *******************************************"
-  ui_print "    *    Unity by ahrion & zackptg5 @ XDA     *"
-  ui_print "    *******************************************"
+  ui_print "     --------------------------------------"
+  ui_print "        Unity by ahrion & zackptg5 @ XDA"
+  ui_print "     --------------------------------------"
   ui_print " "
   $DEBUG && debug_log
   [ -d "$TMPDIR/addon/Aroma-Installer" ] && { rm -rf $TMPDIR; sleep 3; reboot recovery; } || { rm -rf $TMPDIR; exit 0; }
