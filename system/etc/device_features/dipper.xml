@@ -4,6 +4,8 @@
     <bool name="is_pad">false</bool>
     <!--whether the device is xiaomi-->
     <bool name="is_xiaomi">true</bool>
+    <bool name="support_camera_screen_light">true</bool>
+    <bool name="camera_support_google_lens">true</bool>
     <!--whether the device is hongmi-->
     <bool name="is_hongmi">false</bool>
     <!--whether the device support alpha optimized-->
@@ -270,7 +272,7 @@
     <!--wheater the device supports force touch -->
     <bool name="support_force_touch">false</bool>
     <!-- font scale for largeui mode -->
-    <float name="smallui_font_scale">0.86</float>
+    <float name="smallui_font_scale">0.84</float>
     <!-- font scale for largeui mode -->
     <float name="mediumui_font_scale">1.05</float>
     <!-- font scale for largeui mode -->
@@ -303,6 +305,7 @@
     <!--min previewsize value for video call case-->
     <integer name="extra_min_preview_size">921600</integer>
     <!--Led light features-->
+    <bool name="support_aod_notification_animate">true</bool>
     <bool name="support_led_light">true</bool>
     <bool name="support_led_color">false</bool>
     <bool name="support_audio_loopback">true</bool>
@@ -382,6 +385,8 @@
     <!-- whether support bluetooth fast startup -->
     <bool name="support_bluetooth_boost">true</bool>
     <string name="bluetooth_boost_value">0x000011C0</string>
+    <!-- whether support LHDC codec offload -->
+    <bool name="support_lhdc">false</bool>
     <!-- Support ARCore, This feature is subjected to change if google defines a standard feature.-->
     <bool name="support_ar_core">true</bool>
     <!--whether support freeform mode in game mode-->
