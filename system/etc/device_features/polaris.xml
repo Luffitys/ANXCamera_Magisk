@@ -36,6 +36,8 @@
     <bool name="support_interview_record_param">true</bool>
     <!--whether the device supports stereo record-->
     <bool name="support_stereo_record">true</bool>
+    <!--whether the device supports screenrecorder inner-sound recorder mode-->
+    <integer name="support_inner_record">1</integer>
     <!--whether the device supports hd record param-->
     <bool name="support_hd_record_param">true</bool>
     <!--whether the device supports screen paper mode-->
@@ -139,7 +141,7 @@
     <!--whether taking full size effect image in camera-->
     <bool name="is_full_size_effect">true</bool>
     <!--whether support aohdr in camera-->
-    <bool name="support_camera_aohdr">true</bool>
+    <bool name="support_camera_aohdr">false</bool>
     <!--whether support high frame recording in camera-->
     <bool name="support_camera_hfr">true</bool>
     <!--whether support chroma flash in camera-->
@@ -295,6 +297,7 @@
         <item>com.android.systemui</item>
         <item>com.phonetest.application</item>
         <item>com.phonetest.application.test</item>
+        <item>com.miui.cameratest</item>
     </string-array>
     <!--still beautify value for 3rd party call-->
     <string name="extra_still_beautify_value">i:2</string>
@@ -329,6 +332,7 @@
         <item>com.xiaomi.midrop</item>
         <item>com.android.midrive</item>
         <item>com.xiaomi.drivemode</item>
+        <item>com.miui.smarttravel</item>
     </string-array>
     <!--system data-app path list -->
     <string-array name="system_data_path_list">
@@ -350,6 +354,7 @@
         <item>/system/data-app/MiDrop/MiDrop.apk</item>
         <item>/system/data-app/MiDrive/MiDrive.apk</item>
         <item>/system/data-app/MiuiDriveMode/MiuiDriveMode.apk</item>
+        <item>/system/data-app/SmartTravel/SmartTravel.apk</item>
     </string-array>
     <!--These app force rotate frame data for video call -->
     <string-array name="camera_rotate_packagelist">
@@ -375,6 +380,8 @@
     <!-- whether support bluetooth fast startup -->
     <bool name="support_bluetooth_boost">true</bool>
     <string name="bluetooth_boost_value">0x000011C0</string>
+    <!-- whether support fast connect bluetooth device -->
+    <bool name="support_bluetooth_fast_connect">true</bool>
     <!--whether camera support portrait mode switch -->
     <bool name="camera_is_support_portrait_front">true</bool>
     <bool name="support_zoom_mfnr">false</bool>
@@ -406,4 +413,8 @@
     <string-array name="support_face_unlock_region_dom">
         <item>CN</item>
     </string-array>
+    <!-- whether support_screen_on_delayed -->
+    <bool name="support_screen_on_delayed">true</bool>
+    <!-- whether support hangup while screen turnning off -->
+    <bool name="support_hangup_while_screen_off">true</bool>
 </features>

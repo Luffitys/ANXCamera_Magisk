@@ -205,7 +205,7 @@
     <!--whether support pre-installed application-->
     <bool name="support_pre_installed_application">true</bool>
     <!--wheater support validate device when syste upadte -->
-    <bool name="support_ota_validate">false</bool>
+    <bool name="support_ota_validate">true</bool>
     <!--whether show basic info items-->
     <bool name="support_show_basic_items">true</bool>
     <!--whether show my device-->
@@ -215,7 +215,7 @@
     <!--wheater support show credentials-->
     <bool name="support_credentials">true</bool>
     <!--whether support main show XiaoAi-->
-    <bool name="support_main_xiaoai">false</bool>
+    <bool name="support_main_xiaoai">true</bool>
     <!--battery capacity typ of the device-->
     <string name="battery_capacity_typ">3400</string>
     <!--the vendor feature, it's value may be qcom,mediatek,leadcore or nvidia-->
@@ -400,7 +400,7 @@
     <!--whether sensor_has_latency-->
     <bool name="sensor_has_latency">true</bool>
     <!--wether support ime xiaoai voice input-->
-    <bool name="surpport_ime_xiaoai_voice">false</bool>
+    <bool name="surpport_ime_xiaoai_voice">true</bool>
     <!-- whether support display gamemode -->
     <bool name="support_displayfeature_gamemode">true</bool>
     <!--These region support face unlock-->

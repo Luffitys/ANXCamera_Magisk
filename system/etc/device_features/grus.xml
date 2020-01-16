@@ -34,6 +34,8 @@
     <bool name="support_stereo_record">true</bool>
     <!--whether the device supports hd record param-->
     <bool name="support_hd_record_param">false</bool>
+    <!--whether the device supports screenrecorder inner-sound recorder mode-->
+    <integer name="support_inner_record">1</integer>
     <!--whether the device supports screen paper mode-->
     <bool name="support_screen_paper_mode">true</bool>
     <!--whether the device supports button light-->
@@ -283,6 +285,8 @@
         <item>com.android.systemui</item>
         <item>com.phonetest.application</item>
         <item>com.phonetest.application.test</item>
+        <item>com.xiaomi.cameratools</item>
+        <item>com.miui.cameratest</item>
     </string-array>
     <!--still beautify value for 3rd party call-->
     <string name="extra_still_beautify_value">i:2</string>
@@ -317,6 +321,7 @@
         <item>com.xiaomi.midrop</item>
         <item>com.android.midrive</item>
         <item>com.xiaomi.drivemode</item>
+        <item>com.miui.smarttravel</item>
     </string-array>
     <!--system data-app path list -->
     <string-array name="system_data_path_list">
@@ -338,6 +343,7 @@
         <item>/system/data-app/MiDrop/MiDrop.apk</item>
         <item>/system/data-app/MiDrive/MiDrive.apk</item>
         <item>/system/data-app/MiuiDriveMode/MiuiDriveMode.apk</item>
+        <item>/system/data-app/SmartTravel/SmartTravel.apk</item>
     </string-array>
     <!--whether surpport paper mode animation-->
     <bool name="support_papermode_animation">true</bool>
@@ -347,8 +353,6 @@
     <bool name="is_support_portrait">true</bool>
     <!--whether taking legacy face beauty in camera-->
     <bool name="is_legacy_face_beauty">false</bool>
-    <!--whether taking 18x9 ratio screen in camera-->
-    <bool name="is_18x9_ratio_screen">true</bool>
     <bool name="support_front_flash">true</bool>
     <!--whether support psensor in pocket mode (true by default)-->
     <bool name="support_psensor_pocket_mode">false</bool>
@@ -372,7 +376,7 @@
     <!--whether support freeform mode in game mode-->
     <bool name="support_freeform_reply">true</bool>
     <!-- Support ARCore, This feature is subjected to change if google defines a standard feature.-->
-    <bool name="support_ar_core">false</bool>
+    <bool name="support_ar_core">true</bool>
     <!--wether support ime xiaoai voice input-->
     <bool name="surpport_ime_xiaoai_voice">true</bool>
     <bool name="support_screen_light">true</bool>
@@ -390,4 +394,14 @@
     <string-array name="support_face_unlock_region_dom">
         <item>CN</item>
     </string-array>
+    <!-- whether support dc backlight -->
+    <bool name="support_dc_backlight">true</bool>
+    <!-- whether support dc backlight dimming -->
+    <bool name="support_dc_backlight_dimming">false</bool>
+    <!-- dimming level for dc backlight -->
+    <float name="dc_backlight_dimming_level">1.0</float>
+    <!-- whether support_screen_on_delayed -->
+    <bool name="support_screen_on_delayed">true</bool>
+    <!-- whether support hangup while screen turnning off -->
+    <bool name="support_hangup_while_screen_off">true</bool>
 </features>

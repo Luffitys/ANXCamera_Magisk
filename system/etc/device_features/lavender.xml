@@ -69,7 +69,7 @@
     <!--whether the device supports eap sim-->
     <bool name="support_eap_sim">true</bool>
     <!--whether the device supports screen optimize-->
-    <bool name="support_screen_optimize">true</bool>
+    <bool name="support_screen_optimize">false</bool>
     <!--whether the device supports agps-->
     <bool name="support_agps">true</bool>
     <!--whether the device supports feedback level-->
@@ -125,7 +125,7 @@
     <!--whether taking lower size effect image in camera-->
     <bool name="is_lower_size_effect">false</bool>
     <!--whether support aohdr in camera-->
-    <bool name="support_camera_aohdr">true</bool>
+    <bool name="support_camera_aohdr">false</bool>
     <!--whether support high frame recording in camera-->
     <bool name="support_camera_hfr">true</bool>
     <!--whether support chroma flash in camera-->
@@ -179,7 +179,7 @@
     <!--whether support pre-installed application-->
     <bool name="support_pre_installed_application">true</bool>
     <!--wheater support validate device when syste upadte -->
-    <bool name="support_ota_validate">false</bool>
+    <bool name="support_ota_validate">true</bool>
     <!--wheater support show credentials-->
     <bool name="support_credentials">true</bool>
     <!--the vendor feature, it's value may be qcom,mediatek,leadcore or nvidia-->
@@ -244,6 +244,7 @@
         <item>com.xiaomi.midrop</item>
         <item>com.android.midrive</item>
         <item>com.xiaomi.drivemode</item>
+        <item>com.miui.smarttravel</item>
     </string-array>
     <!--system data-app path list -->
     <string-array name="system_data_path_list">
@@ -265,6 +266,7 @@
         <item>/system/data-app/MiDrop/MiDrop.apk</item>
         <item>/system/data-app/MiDrive/MiDrive.apk</item>
         <item>/system/data-app/MiuiDriveMode/MiuiDriveMode.apk</item>
+        <item>/system/data-app/SmartTravel/SmartTravel.apk</item>
     </string-array>
     <!-- whether camera support AI lens entry -->
     <bool name="camera_support_ai_lens">true</bool>
@@ -277,10 +279,10 @@
     <!--whether show basic info items-->
     <bool name="support_show_basic_items">true</bool>
     <!-- whether CN hardware can flash Global rom -->
-    <bool name="enable_flash_global">true</bool>
+    <bool name="enable_flash_global">false</bool>
     <bool name="support_new_silentmode">true</bool>
     <!--whether taking 18x9 ratio screen in camera-->
-    <bool name="is_18x9_ratio_screen">true</bool>
+    <bool name="is_18x9_ratio_screen">false</bool>
     <!--whether support portrait in camera-->
     <bool name="is_support_portrait">true</bool>
     <!--whether camera support screen light-->
@@ -320,6 +322,8 @@
     <bool name="support_hall_sensor">false</bool>
     <!--whether sensor_has_latency-->
     <bool name="sensor_has_latency">true</bool>
+    <!--whether show AAC switch-->
+    <bool name="show_aac_switch">false</bool>
     <!-- device head sar value -->
     <float name="device_head_sar">0.962</float>
     <!-- device body sar value -->
@@ -340,4 +344,6 @@
     <string-array name="support_face_unlock_region_dom">
         <item>CN</item>
     </string-array>
+    <!-- whether support hangup while screen turnning off -->
+    <bool name="support_hangup_while_screen_off">true</bool>
 </features>

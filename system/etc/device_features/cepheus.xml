@@ -36,6 +36,8 @@
     <bool name="support_stereo_record">true</bool>
     <!--whether the device supports hd record param-->
     <bool name="support_hd_record_param">true</bool>
+    <!--whether the device supports screenrecorder inner-sound recorder mode-->
+    <integer name="support_inner_record">1</integer>
     <!--whether the device supports screen paper mode-->
     <bool name="support_screen_paper_mode">true</bool>
     <!--whether the device supports button light-->
@@ -294,6 +296,7 @@
         <item>com.phonetest.application</item>
         <item>com.phonetest.application.test</item>
         <item>com.ss.android.ugc.aweme</item>
+        <item>com.miui.cameratest</item>
     </string-array>
     <!--still beautify value for 3rd party call-->
     <string name="extra_still_beautify_value">i:2</string>
@@ -328,6 +331,7 @@
         <item>com.xiaomi.midrop</item>
         <item>com.android.midrive</item>
         <item>com.xiaomi.drivemode</item>
+        <item>com.miui.smarttravel</item>
     </string-array>
     <!--system data-app path list -->
     <string-array name="system_data_path_list">
@@ -349,6 +353,7 @@
         <item>/system/data-app/MiDrop/MiDrop.apk</item>
         <item>/system/data-app/MiDrive/MiDrive.apk</item>
         <item>/system/data-app/MiuiDriveMode/MiuiDriveMode.apk</item>
+        <item>/system/data-app/SmartTravel/SmartTravel.apk</item>
     </string-array>
     <!--whether surpport paper mode animation-->
     <bool name="support_papermode_animation">true</bool>
@@ -361,7 +366,7 @@
     <!--whether taking legacy face beauty in camera-->
     <bool name="is_legacy_face_beauty">false</bool>
     <!--whether taking 18x9 ratio screen in camera-->
-    <bool name="is_18x9_ratio_screen">true</bool>
+    <bool name="is_18x9_ratio_screen">false</bool>
     <!--whether support add watermark on bottom left of picture-->
     <bool name="support_picture_watermark">true</bool>
     <!--whether front camera support bokeh or not-->
@@ -391,6 +396,8 @@
     <string name="bluetooth_boost_value">0x000011C0</string>
     <!-- whether support fast connect bluetooth device -->
     <bool name="support_bluetooth_fast_connect">true</bool>
+    <!-- whether support bluetooth cloud data -->
+    <bool name="support_bluetooth_cloud_data">true</bool>
     <!-- whether support ai task button -->
     <bool name="support_ai_task">true</bool>
     <!-- whether support touch gamemode -->
@@ -417,4 +424,11 @@
     <bool name="support_dc_backlight_dimming">false</bool>
     <!-- dimming level for dc backlight -->
     <float name="dc_backlight_dimming_level">1.0</float>
+    <!-- Support ARCore, This feature is subjected to change if google defines a standard feature.-->
+    <bool name="support_ar_core">true</bool>
+    <!-- whether support_screen_on_delayed -->
+    <bool name="support_screen_on_delayed">true</bool>
+    <!-- whether support hangup while screen turnning off -->
+    <bool name="support_hangup_while_screen_off">true</bool>
+    <bool name="aod_support_keycode_goto_dismiss">true</bool>
 </features>

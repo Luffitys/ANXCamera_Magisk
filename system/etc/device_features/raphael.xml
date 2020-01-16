@@ -38,6 +38,8 @@
     <bool name="support_stereo_record">true</bool>
     <!--whether the device supports hd record param-->
     <bool name="support_hd_record_param">false</bool>
+    <!--whether the device supports screenrecorder inner-sound recorder mode-->
+    <integer name="support_inner_record">1</integer>
     <!--whether the device supports screen paper mode-->
     <bool name="support_screen_paper_mode">true</bool>
     <!--whether the device supports button light-->
@@ -298,6 +300,8 @@
         <item>com.phonetest.application</item>
         <item>com.phonetest.application.test</item>
         <item>com.ss.android.ugc.aweme</item>
+        <item>com.xiaomi.cameratools</item>
+        <item>com.miui.cameratest</item>
     </string-array>
     <!--still beautify value for 3rd party call-->
     <string name="extra_still_beautify_value">i:2</string>
@@ -332,6 +336,7 @@
         <item>com.xiaomi.midrop</item>
         <item>com.android.midrive</item>
         <item>com.xiaomi.drivemode</item>
+        <item>com.miui.smarttravel</item>
     </string-array>
     <!--system data-app path list -->
     <string-array name="system_data_path_list">
@@ -353,6 +358,7 @@
         <item>/system/data-app/MiDrop/MiDrop.apk</item>
         <item>/system/data-app/MiDrive/MiDrive.apk</item>
         <item>/system/data-app/MiuiDriveMode/MiuiDriveMode.apk</item>
+        <item>/system/data-app/SmartTravel/SmartTravel.apk</item>
     </string-array>
     <!--whether surpport paper mode animation-->
     <bool name="support_papermode_animation">true</bool>
@@ -365,7 +371,7 @@
     <!--whether taking legacy face beauty in camera-->
     <bool name="is_legacy_face_beauty">false</bool>
     <!--whether taking 18x9 ratio screen in camera-->
-    <bool name="is_18x9_ratio_screen">true</bool>
+    <bool name="is_18x9_ratio_screen">false</bool>
     <!--whether support add watermark on bottom left of picture-->
     <bool name="support_picture_watermark">true</bool>
     <!--whether front camera support bokeh or not-->
@@ -388,7 +394,7 @@
     <bool name="support_realtime_manual_exposure_time">true</bool>
     <!--whether sensor_has_latency-->
     <bool name="sensor_has_latency">true</bool>
-    <!-- whether support touch gamemode -->
+   <!-- whether support touch gamemode -->
     <bool name="support_touchfeature_gamemode">true</bool>
     <!-- whether support bluetooth fast startup -->
     <bool name="support_bluetooth_boost">true</bool>
@@ -404,14 +410,11 @@
     <!-- whether support extreme mode only support perseus-->
     <bool name="support_extreme_battery_saver">false</bool>
     <!--These region support face unlock-->
+    <string-array name="support_face_unlock_region_dom">
+        <item>CN</item>
+    </string-array>
+    <!--These region support face unlock-->
     <string-array name="support_face_unlock_region_global">
-        <item>ID</item>
-        <item>IN</item>
-        <item>HK</item>
-        <item>TW</item>
-        <item>SG</item>
-        <item>MY</item>
-        <item>VN</item>
         <item>ALL</item>
     </string-array>
     <!-- device head sar value -->
@@ -424,4 +427,6 @@
     <bool name="support_dc_backlight_dimming">false</bool>
     <!-- dimming level for dc backlight -->
     <float name="dc_backlight_dimming_level">1.0</float>
+    <!-- whether support hangup while screen turnning off -->
+    <bool name="support_hangup_while_screen_off">true</bool>
 </features>

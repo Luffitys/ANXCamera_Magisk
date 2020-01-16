@@ -3,11 +3,11 @@
     <!--whether the device is pad-->
     <bool name="is_pad">false</bool>
     <!--whether the device is xiaomi-->
-    <bool name="is_xiaomi">true</bool>
+    <bool name="is_xiaomi">false</bool>
     <!--whether the device is hongmi-->
-    <bool name="is_hongmi">false</bool>
+    <bool name="is_hongmi">true</bool>
     <!--whether the device is redmi-->
-    <bool name="is_redmi">false</bool>
+    <bool name="is_redmi">true</bool>
     <!--whether the device support alpha optimized-->
     <bool name="support_alpha_optimized">true</bool>
     <!--whether the device supports torch-->
@@ -38,6 +38,8 @@
     <bool name="support_stereo_record">true</bool>
     <!--whether the device supports hd record param-->
     <bool name="support_hd_record_param">false</bool>
+    <!--whether the device supports screenrecorder inner-sound recorder mode-->
+    <integer name="support_inner_record">1</integer>
     <!--whether the device supports screen paper mode-->
     <bool name="support_screen_paper_mode">true</bool>
     <!--whether the device supports button light-->
@@ -85,7 +87,7 @@
     <!--whether the device supports steps_provider-->
     <bool name="support_steps_provider">true</bool>
     <!--whether the device support hall sensor-->
-    <bool name="support_hall_sensor">true</bool>
+    <bool name="support_hall_sensor">false</bool>
     <!--whether the device supports hifi-->
     <bool name="support_hifi">false</bool>
     <!--whether the device supports agps parameters-->
@@ -296,6 +298,7 @@
         <item>com.phonetest.application</item>
         <item>com.phonetest.application.test</item>
         <item>com.xiaomi.cameratools</item>
+        <item>com.miui.cameratest</item>
     </string-array>
     <!--still beautify value for 3rd party call-->
     <string name="extra_still_beautify_value">i:2</string>
@@ -330,6 +333,7 @@
         <item>com.xiaomi.midrop</item>
         <item>com.android.midrive</item>
         <item>com.xiaomi.drivemode</item>
+        <item>com.miui.smarttravel</item>
     </string-array>
     <!--system data-app path list -->
     <string-array name="system_data_path_list">
@@ -351,6 +355,7 @@
         <item>/system/data-app/MiDrop/MiDrop.apk</item>
         <item>/system/data-app/MiDrive/MiDrive.apk</item>
         <item>/system/data-app/MiuiDriveMode/MiuiDriveMode.apk</item>
+        <item>/system/data-app/SmartTravel/SmartTravel.apk</item>
     </string-array>
     <!--whether surpport paper mode animation-->
     <bool name="support_papermode_animation">true</bool>
@@ -381,7 +386,7 @@
     <!--whether camera support front flash-->
     <bool name="support_front_flash">true</bool>
     <!--whether support psensor in pocket mode (true by default)-->
-    <bool name="support_psensor_pocket_mode">true</bool>
+    <bool name="support_psensor_pocket_mode">false</bool>
     <!--whether camera support realtime manual exposure time-->
     <bool name="support_realtime_manual_exposure_time">true</bool>
     <!--whether sensor_has_latency-->
@@ -413,4 +418,6 @@
     <float name="device_head_sar">1.070</float>
     <!-- device body sar value -->
     <float name="device_body_sar">0.723</float>
+    <!-- whether support hangup while screen turnning off -->
+    <bool name="support_hangup_while_screen_off">true</bool>
 </features>
