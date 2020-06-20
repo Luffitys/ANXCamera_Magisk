@@ -15,81 +15,37 @@ abort() {
 cleanup() {
   rm -rf $MODPATH/common 2>/dev/null
   ui_print " "
-  ui_print "   ───────────────────────────────────"
-  ui_print "         MMT Extended by Zackptg5 @ XDA"
-  ui_print "   ───────────────────────────────────"
+  ui_print "    **************************************"
+  ui_print "    *   MMT Extended by Zackptg5 @ XDA   *"
+  ui_print "    **************************************"
   ui_print " "
-  ui_print " "
-  ui_print " "
-  ui_print "                   FINISHED!"
-  $DEBUG && debug_log
-}
-
-debug_log() {
-  set +x
-  echo -e "***---Device Info---***" > $LOGFILE-tmp.log
-  echo -e "\n---Props---\n" >> $LOGFILE-tmp.log
-  getprop >> $LOGFILE-tmp.log
-  echo -e "\n\n***---Magisk Info---***" >> $LOGFILE-tmp.log
-  echo -e "\n---Magisk Version---\n\n$MAGISK_VER_CODE" >> $LOGFILE-tmp.log
-  echo -e "\n---Installed Modules---\n" >> $LOGFILE-tmp.log
-  ls $NVBASE/modules >> $LOGFILE-tmp.log
-  echo -e "\n---Last Magisk Log---\n" >> $LOGFILE-tmp.log
-  cat /cache/magisk.log >> $LOGFILE-tmp.log
-  echo -e "\n\n***---MMT Extended Debug Info---***" >> $LOGFILE-tmp.log
-  if [ -d "$MODPATH" ]; then
-    echo -e "\n---Installed Files---\n" >> $LOGFILE-tmp.log
-    grep "^+* cp_ch" $LOGFILE.log | sed 's/.* //g' >> $LOGFILE-tmp.log
-    sed -i -e "\|$TMPDIR/|d" -e "\|$MODPATH|d" $LOGFILE-tmp.log
-    find $MODPATH -type f >> $LOGFILE-tmp.log
-    echo -e "\n---Installed Boot Scripts---\n" >> $LOGFILE-tmp.log
-    grep "^+* install_script" $LOGFILE.log | sed -e 's/.* //g' -e 's/^-.* //g' >> $LOGFILE-tmp.log
-    echo -e "\n---Installed Prop Files---\n" >> $LOGFILE-tmp.log
-    grep "^+* prop_process" $LOGFILE.log | sed 's/.* //g' >> $LOGFILE-tmp.log
-  fi
-  echo -e "\n---Shell & MMT Extended Variables---\n" >> $LOGFILE-tmp.log
-  (set) >> $LOGFILE-tmp.log
-  echo -e "\n---(Un)Install Log---\n" >> $LOGFILE-tmp.log
-  echo "$(cat $LOGFILE.log)" >> $LOGFILE-tmp.log
-  mv -f $LOGFILE-tmp.log $LOGFILE.log
 }
 
 device_check() {
-  local PROP=$(echo "$1" | tr '[:upper:]' '[:lower:]')
+  local opt=`getopt -o dm -- "$@"` type=device
+  eval set -- "$opt"
+  while true; do
+    case "$1" in
+      -d) local type=device; shift;;
+      -m) local type=manufacturer; shift;;
+      --) shift; break;;
+      *) abort "Invalid device_check argument $1! Aborting!";;
+    esac
+  done
+  local prop=$(echo "$1" | tr '[:upper:]' '[:lower:]')
   for i in /system /vendor /odm /product; do
     if [ -f $i/build.prop ]; then
-      for j in "ro.product.device" "ro.build.product" "ro.product.vendor.device" "ro.vendor.product.device"; do
-        [ "$(sed -n "s/^$j=//p" $i/build.prop 2>/dev/null | head -n 1 | tr '[:upper:]' '[:lower:]')" == "$PROP" ] && return 0
+      for j in "ro.product.$type" "ro.build.$type" "ro.product.vendor.$type" "ro.vendor.product.$type"; do
+        [ "$(sed -n "s/^$j=//p" $i/build.prop 2>/dev/null | head -n 1 | tr '[:upper:]' '[:lower:]')" == "$prop" ] && return 0
       done
     fi
   done
   return 1
 }
 
-run_addons() {
-  local OPT=`getopt -o mpi -- "$@"` NAME PNAME
-  eval set -- "$OPT"
-  while true; do
-    case "$1" in
-      -m) NAME=main; shift;;
-      -p) NAME=preinstall; PNAME="Preinstall"; shift;;
-      -i) NAME=install; PNAME="Install"; shift;;
-      --) shift; break;;
-    esac
-  done
-  if [ "$(ls -A $MODPATH/common/addon/*/$NAME.sh 2>/dev/null)" ]; then
-    [ -z $PNAME ] || { ui_print " "; ui_print "- Running $PNAME Addons -"; }
-    for i in $MODPATH/common/addon/*/$NAME.sh; do
-      ui_print "  Running $(echo $i | sed -r "s|$MODPATH/common/addon/(.*)/$NAME.sh|\1|")..."
-      . $i
-    done
-    [ -z $PNAME ] || { ui_print " "; ui_print "- `echo $PNAME`ing (cont) -"; }
-  fi
-}
-
 cp_ch() {
-  local OPT=`getopt -o inr -- "$@"` BAK=true UBAK=true FOL=false
-  eval set -- "$OPT"
+  local opt=`getopt -o nr -- "$@"` BAK=true UBAK=true FOL=false
+  eval set -- "$opt"
   while true; do
     case "$1" in
       -n) UBAK=false; shift;;
@@ -172,6 +128,8 @@ else
   LIBDIR=/system
 fi
 if ! $BOOTMODE; then
+  ui_print "- Only uninstall is supported in recovery"
+  ui_print "  Uninstalling!"
   touch $MODPATH/remove
   [ -s $INFO ] && install_script $MODPATH/uninstall.sh || rm -f $INFO $MODPATH/uninstall.sh
   recovery_cleanup
@@ -183,20 +141,27 @@ fi
 # Debug
 if $DEBUG; then
   ui_print "- Debug mode"
-  LOGFILE=/storage/emulated/0/Download/$MODID-debug
-  ui_print "  Debug log will be written to: $LOGFILE.log"
-  exec 2>$LOGFILE.log
+  ui_print "  Module install log will include debug info"
+  ui_print "  Be sure to save it after module install"
   set -x
 fi
 
 # Extract files
+ui_print "- Extracting module files"
 unzip -o "$ZIPFILE" -x 'META-INF/*' 'common/functions.sh' -d $MODPATH >&2
 [ -f "$MODPATH/common/addon.tar.xz" ] && tar -xf $MODPATH/common/addon.tar.xz -C $MODPATH/common 2>/dev/null
 
-# Main addons
-run_addons -m
+# Run addons
+if [ "$(ls -A $MODPATH/common/addon/*/install.sh 2>/dev/null)" ]; then
+  ui_print " "; ui_print "- Running Addons -"
+  for i in $MODPATH/common/addon/*/install.sh; do
+    ui_print "  Running $(echo $i | sed -r "s|$MODPATH/common/addon/(.*)/install.sh|\1|")..."
+    . $i
+  done
+fi
 
 # Remove files outside of module directory
+ui_print "- Removing old files"
 
 if [ -f $INFO ]; then
   while read LINE; do
@@ -216,11 +181,11 @@ if [ -f $INFO ]; then
 fi
 
 ### Install
+ui_print "- Installing"
 
-run_addons -p
 [ -f "$MODPATH/common/install.sh" ] && . $MODPATH/common/install.sh
-run_addons -i
 
+ui_print "   Installing for $ARCH SDK $API device..."
 # Remove comments from files and place them, add blank line to end if not already present
 for i in $(find $MODPATH -type f -name "*.sh" -o -name "*.prop" -o -name "*.rule"); do
   [ -f $i ] && { sed -i -e "/^#/d" -e "/^ *$/d" $i; [ "$(tail -1 $i)" ] && echo "" >> $i; } || continue
@@ -253,6 +218,8 @@ if $DYNLIB; then
 fi
 
 # Set permissions
+ui_print " "
+ui_print "- Setting Permissions"
 set_perm_recursive $MODPATH 0 0 0755 0644
 if [ -d $MODPATH/system/vendor ]; then
   set_perm_recursive $MODPATH/system/vendor 0 0 0755 0644 u:object_r:vendor_file:s0

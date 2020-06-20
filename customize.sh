@@ -11,7 +11,7 @@
 # Uncomment and change 'MINAPI' and 'MAXAPI' to the minimum and maximum android version for your mod
 # Uncomment DYNLIB if you want libs installed to vendor for oreo+ and system for anything older
 # Uncomment DEBUG if you want full debug logs (saved to /sdcard)
-MINAPI=26
+#MINAPI=21
 #MAXAPI=25
 #DYNLIB=true
 #DEBUG=true
@@ -34,8 +34,6 @@ REPLACE_EXAMPLE="
 
 # Construct your own list here
 REPLACE="
-/system/priv-app/MiuiCamera
-/system/priv-app/Snap
 "
 
 ##########################################################################################

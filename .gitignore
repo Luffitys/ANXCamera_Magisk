@@ -1,2 +1,2 @@
-*.apk
-*.zip
+/system/*app/*/*.apk
+/*.zip
